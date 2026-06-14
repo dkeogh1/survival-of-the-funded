@@ -1,0 +1,21 @@
+# Python-generated files
+__pycache__/
+*.py[oc]
+build/
+dist/
+wheels/
+*.egg-info
+
+# Virtual environments
+.venv
+
+# Claude Code project dir
+.claude/
+
+# data (large + redistribution-restricted: KFS microdata, copyrighted PDFs) and
+# regenerable outputs. Nothing under data/ is committed; see README for how to fetch.
+data/
+docs/*.pdf
+docs/*codebook*.txt
+docs/thesis_text.txt
+output/
