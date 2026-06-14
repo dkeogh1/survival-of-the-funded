@@ -19,3 +19,6 @@ docs/*.pdf
 docs/*codebook*.txt
 docs/thesis_text.txt
 output/
+
+# local commit-message scratch
+COMMIT_MSG.txt
