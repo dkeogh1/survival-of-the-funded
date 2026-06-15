@@ -81,6 +81,7 @@ upgrades on the same data (full writeup in [`docs/EXTENSIONS.md`](docs/EXTENSION
 | `docs/RESULTS_COMPARISON.md` | Side-by-side of reproduced vs. published results |
 | `docs/EXPERIMENTS_FINANCING.md` | Investigation of the financing-coefficient gap |
 | `docs/EXTENSIONS.md` | Competing risks, MICE, team capital, ML interactions |
+| `src/visualize.py` | Interactive Plotly figures → `output/figures/` |
 | `docs/DanielKeogh_FinalThesis.pdf` | The thesis (reference) |
 
 ## Two survival definitions
