@@ -61,6 +61,9 @@ upgrades on the same data (full writeup in [`docs/EXTENSIONS.md`](docs/EXTENSION
   modestly beat linear Cox, and data-driven interaction ranking shows two of the thesis's
   three hand-picked interactions (`ednet`, `indnet`) have ~zero interaction strength,
   while the data favours stacked competitive advantages and team-vs-primary experience.
+- **GPU XGBoost-AFT + exact SHAP interactions** (`src/gpu_survival.py`) — a fourth model
+  plus an independent, GPU-computed SHAP confirmation of the interaction finding (auto-falls
+  back to CPU without a GPU).
 
 ## Repository layout
 
@@ -75,6 +78,7 @@ upgrades on the same data (full writeup in [`docs/EXTENSIONS.md`](docs/EXTENSION
 | `src/competing_risks.py` | Cause-specific Cox + cumulative incidence |
 | `src/imputation.py` | MICE + Rubin's-rules pooled Cox |
 | `src/ml_survival.py` | RSF / gradient-boosted Cox + Friedman's H-statistic |
+| `src/gpu_survival.py` | GPU XGBoost-AFT + exact SHAP interactions (CPU fallback) |
 | `src/run_extensions.py` | Extensions pipeline |
 | `src/experiments/` | Forensic experiments on the financing gap |
 | `docs/VARIABLE_MAPPING.md` | Thesis variable → KFS column crosswalk + construction rules |

@@ -101,6 +101,23 @@ combinations: **stacked competitive advantages** (university+company, company+pa
 around competitive advantage and experience") survives; the *specific* hand-picked terms
 largely do not, and ML surfaces better-supported ones.
 
+## Extension 4c — GPU XGBoost-AFT + exact SHAP interactions (independent check)
+
+`src/gpu_survival.py` adds a fourth survival model — XGBoost Accelerated Failure Time,
+trained on GPU — and computes **exact SHAP pairwise interaction values on-device** (via
+XGBoost's CUDA predictor, with no `shap`/`numba`, which clash with our numpy). This is an
+*independent* method for the interaction question in 4b.
+
+- Concordance **C = 0.697** — ties the gradient-boosted Cox; flexible models plateau here.
+- SHAP and Friedman's H **agree**: of each method's top-5 interactions, **3 overlap**
+  (company×patent, company×university, debt×company).
+- The thesis's hand-picked terms rank the same way under both methods: `netfwex_2` holds
+  (SHAP rank 9 / 903 pairs) while **`ednet` (65th) and `indnet` (96th) sit in the weak
+  tail** — confirming, with exact SHAP, the H-statistic conclusion that two of the three
+  hand-picked interactions are not well supported.
+
+Needs an NVIDIA GPU for the `cuda` path but auto-falls back to CPU.
+
 ## Caveats
 
 - All interactions are weak in absolute terms (H² < 0.07); the GBM only modestly beats Cox
